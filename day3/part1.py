@@ -15,7 +15,7 @@ def find_similar_item(rucksack_a, rucksack_b):
 def get_priority(item):
     if not item:
         return
-    if not item.isupper():
+    if item.islower():
         alphabet = list(string.ascii_lowercase)
         return alphabet.index(item) + 1
     else:

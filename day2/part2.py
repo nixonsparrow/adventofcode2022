@@ -22,9 +22,9 @@ class RealDuel(Duel):
             self.opponent.prepare(opponent_weapon)
             self.player.play(self.opponent)
         self.result.update({self.player: self.player.points, self.opponent: self.opponent.points})
+        return self.result
 
 
 if __name__ == '__main__':
     duel = RealDuel(read_input("input.txt"), RealPlayer("Nixon"), Player("Elf"))
-    duel.fight()
-    print(duel.result)
+    print(duel.fight())

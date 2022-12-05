@@ -28,14 +28,14 @@ class Stack:
 
 
 class Warehouse:
-    def __init__(self, stacks_input):
-        self.stacks = self.create_stacks(stacks_input)
+    def __init__(self, stacks_input, stack_model=Stack):
+        self.stacks = self.create_stacks(stacks_input, stack_model)
 
     def __str__(self):
         return f"{self.stacks}"
 
     @staticmethod
-    def create_stacks(stack_input):
+    def create_stacks(stack_input, stack_model):
         pre_stacks = {}
         for row in stack_input:
             if "[" not in row:
@@ -58,7 +58,7 @@ class Warehouse:
         stacks = []
         for nr, containers in pre_stacks.items():
             containers.reverse()
-            stacks.append(Stack(nr, containers))
+            stacks.append(stack_model(nr, containers))
         return stacks
 
     def make_a_move(self, move):
